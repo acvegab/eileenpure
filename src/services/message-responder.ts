@@ -5,18 +5,21 @@ import {TYPES} from "../types";
 
 @injectable()
 export class MessageResponder {
-  private pingFinder: WordFinder;
+  private wordFinder: WordFinder;
 
   constructor(
-    @inject(TYPES.WordFinder) pingFinder: WordFinder
+    @inject(TYPES.WordFinder) wordFinder: WordFinder
   ) {
-    this.pingFinder = pingFinder;
+    this.wordFinder = wordFinder;
   }
 
   handle(message: Message): Promise<Message | Message[]> {
-    if (this.pingFinder.isPing(message.content)) {
+    if (this.wordFinder.isPing(message.content)) {
       return message.reply('pong!');
     }
+    // else if(this.wordFinder.isGuau(message.content)){
+    //   return message.reply('guau!');
+    // }
 
     return Promise.reject();
   }
