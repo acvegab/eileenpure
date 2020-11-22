@@ -4,6 +4,8 @@ export const TYPES ={
     Token: Symbol("Token"),
     MessageResponder: Symbol("MessageResponder"),
     WordFinder: Symbol("WordFinder"),
+    Giphy: Symbol("Giphy"),
+    GiphyKey: Symbol("GiphyKey"),
 };
 
 function exist(board: string[][], word: string): boolean {
