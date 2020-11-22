@@ -17,6 +17,7 @@ export class Giphy{
     public async search(q,rating){
         const giphy: giphyApi.Giphy = giphyApi();
         let res= await giphy.search({ q: q, rating: rating });
+        console.log(res);
         return res.data;
     }
     private cb(err: Error, res: any){

@@ -35,15 +35,15 @@ export class Bot {
             if(message.author.bot) return;
 
             console.log("Message received: ",message.content.toLowerCase());
-            console.log(message.content.length);
             if(message.content.toLowerCase().search(/elmo/g)>=0){
-                console.log('elmo!');
-                
                 this.elmo().then(res => {
-                    let random_gif=Math.floor(Math.random() * res.length);
-                    console.log(res[random_gif].url);
-                    
-                    message.channel.send(res[random_gif].url);
+
+                    console.log('elmo!');
+                        if(res){
+                        console.log(res[0]);
+                        }
+                        let random_gif=Math.floor(Math.random() * res.length);
+                        message.channel.send(res[random_gif].url);
                 });
             }
             if(message.content.toLowerCase().search(/hol[ai](ta)?s*/g)>=0){
