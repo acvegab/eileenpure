@@ -35,13 +35,8 @@ export class Bot {
             if(message.author.bot) return;
 
             console.log("Message received: ",message.content.toLowerCase());
-            if(message.content.toLowerCase().search(/elmo/g)>=0){
+            if(message.content.toLowerCase().search(/el(\s)*mo/g)>=0){
                 this.elmo().then(res => {
-
-                    console.log('elmo!');
-                        if(res){
-                        console.log(res[0]);
-                        }
                         let random_gif=Math.floor(Math.random() * res.length);
                         message.channel.send(res[random_gif].url);
                 });
